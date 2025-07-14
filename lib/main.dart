@@ -1,4 +1,5 @@
 import 'package:app_dev_005/pages/home_page.dart';
+import 'package:app_dev_005/pages/task_list.dart';
 import 'package:flutter/material.dart';
 
 void main () {
@@ -10,7 +11,7 @@ class MainApp extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Save my queen app",
-      home: HomePage(),
+      home: TaskListPage(),
     );
   }
 }
