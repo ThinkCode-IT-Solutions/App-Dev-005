@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 
 class TaskItem extends StatelessWidget {
+  String title;
+  String subTitle;
+  Color color;
+
+  // constructor
+  TaskItem({
+    required this.title,
+    required this.subTitle,
+    required this.color,
+  });
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -17,9 +27,9 @@ class TaskItem extends StatelessWidget {
       ),
       margin: EdgeInsets.all(5),
       child: ListTile(
-        title: Text("Task 1"),
-        leading: Icon(Icons.circle, color: Colors.red),
-        subtitle: Text("This task is important"),
+        title: Text(title),
+        leading: Icon(Icons.circle, color: color),
+        subtitle: Text(subTitle),
         trailing: IconButton(
           onPressed: () {
             print("button is clicked");
