@@ -1,5 +1,6 @@
 import 'package:app_dev_005/components/category-circle.dart';
 import 'package:app_dev_005/components/highlight_card.dart';
+import 'package:app_dev_005/pages/task_list.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
       'Karachi King Kong',
       'Samosa Bhai',
       'Funny Shahzad',
-      'Clumpsy Talha'
+      'Clumpsy Talha',
     ];
 
     return Scaffold(
@@ -116,13 +117,26 @@ class HomePage extends StatelessWidget {
             ListView.builder(
               shrinkWrap: true,
               itemCount: funnyNames.length,
-              itemBuilder: (context,index){
+              itemBuilder: (context, index) {
                 String name = funnyNames[index];
-                return ListTile(title: Text(name),);
+                return ListTile(
+                  title: Text(name),
+                  tileColor: Colors.grey,
+                  leading: IconButton(
+                    onPressed: () {
+                      print("button has been clicked");
+                      // navigation
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context){
+                          return TaskListPage();
+                        })
+                      );
+                    },
+                    icon: Icon(Icons.arrow_forward),
+                  ),
+                );
               },
-              
-              
-              )
+            ),
           ],
         ),
       ),

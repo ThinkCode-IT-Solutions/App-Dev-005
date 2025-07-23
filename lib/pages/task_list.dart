@@ -115,7 +115,10 @@ class TaskListPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Task list"),
         backgroundColor: Colors.grey,
-        leading: Icon(Icons.add_task),
+        leading: IconButton(onPressed: (){
+          print("the back button is pressed");
+          Navigator.of(context).pop();
+        }, icon: Icon(Icons.back_hand)),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
