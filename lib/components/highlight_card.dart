@@ -15,7 +15,7 @@ class HighlightCard  extends StatelessWidget{
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Image(
-          image: NetworkImage(imageUrl),
+          image: AssetImage(imageUrl),
           fit: BoxFit.cover,
         ),
       ),

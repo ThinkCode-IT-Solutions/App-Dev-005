@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color titleColor = Color(0xff00b4d8);
     List<String> funnyNames = [
       'Chikna Jani',
       'Tinda Baba',
@@ -46,27 +47,56 @@ class HomePage extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [Text("Highlights"), Text("see all")],
+              children: [
+                Text(
+                  "Highlights",
+                  style: TextStyle(
+                    color: titleColor,
+                    backgroundColor: Colors.transparent,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                
+              ],
             ),
+            // highlight section
             Container(
               height: 200,
               // color: Colors.red,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  HighlightCard(imageUrl: "https://picsum.photos/200/200"),
-                  HighlightCard(imageUrl: "https://picsum.photos/200/200"),
-                  HighlightCard(imageUrl: "https://picsum.photos/200/200"),
-                  HighlightCard(imageUrl: "https://picsum.photos/200/200"),
-                  HighlightCard(imageUrl: "https://picsum.photos/200/200"),
-                  HighlightCard(imageUrl: "https://picsum.photos/200/200"),
-                  HighlightCard(imageUrl: "https://picsum.photos/200/200"),
-                  HighlightCard(imageUrl: "https://picsum.photos/200/200"),
+                  HighlightCard(imageUrl: "assets/images/pic-1.jpg"),
+                  HighlightCard(imageUrl: "assets/images/pic-1.jpg"),
+                  HighlightCard(imageUrl: "assets/images/pic-1.jpg"),
+                  HighlightCard(imageUrl: "assets/images/pic-1.jpg"),
+                  HighlightCard(imageUrl: "assets/images/pic-1.jpg"),
+                  HighlightCard(imageUrl: "assets/images/pic-1.jpg"),
+                  HighlightCard(imageUrl: "assets/images/pic-1.jpg"),
+                  HighlightCard(imageUrl: "assets/images/pic-1.jpg"),
                 ],
               ),
             ),
+            // row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Categories",
+                  style: TextStyle(
+                    color: titleColor,
+                    backgroundColor: Colors.transparent,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                
+              ],
+            ),
+            
+            // category section
             Container(
-              // color: Colors.pink,
               height: 140,
               padding: EdgeInsets.all(10),
               child: ListView(
@@ -83,7 +113,22 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-
+              //row 
+              Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Browse Books",
+                  style: TextStyle(
+                    color: titleColor,
+                    backgroundColor: Colors.transparent,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                
+              ],
+            ),
             // GridView(
             //   shrinkWrap: true,
             //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -119,20 +164,37 @@ class HomePage extends StatelessWidget {
               itemCount: funnyNames.length,
               itemBuilder: (context, index) {
                 String name = funnyNames[index];
-                return ListTile(
-                  title: Text(name),
-                  tileColor: Colors.grey,
-                  leading: IconButton(
-                    onPressed: () {
-                      print("button has been clicked");
-                      // navigation
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context){
-                          return TaskListPage();
-                        })
-                      );
-                    },
-                    icon: Icon(Icons.arrow_forward),
+                return Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [
+                      Color(0xffedede9),
+                      Colors.white,
+                    ]),
+                    border: BoxBorder.all(
+                      color: Color(0xff3a5a40),
+                      width: 1,
+                      style: BorderStyle.solid,
+                    ),
+                    borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: ListTile(
+                    title: Text(name),
+                    leading: IconButton(
+                      onPressed: () {
+                        print("button has been clicked");
+                        // navigation
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return TaskListPage();
+                            },
+                          ),
+                        );
+                      },
+                      icon: Icon(Icons.arrow_forward),
+                    ),
                   ),
                 );
               },
