@@ -1,4 +1,5 @@
 // import 'package:app_dev_005/pages/home_page.dart';
+import 'package:app_dev_005/pages/backgroundChanger.dart';
 import 'package:app_dev_005/pages/book_home.dart';
 import 'package:app_dev_005/pages/task_list.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class BookApp extends StatelessWidget{
     return MaterialApp(
       title: "Book App",
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: Backgroundchanger(),
     );
   }
 }
