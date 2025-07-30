@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
-class Backgroundchanger extends StatelessWidget {
-  const Backgroundchanger({super.key});
+// main class
+class Backgroundchanger extends StatefulWidget {
+  State<Backgroundchanger> createState() {
+    return _BackgroundChangerState();
+  }
+}
 
-  @override
+// state class
+class _BackgroundChangerState extends State<Backgroundchanger> {
+  int index = 0;
   Widget build(BuildContext context) {
     List<Color> bgColors = [
+      Colors.red,
       Colors.green,
       Colors.blue,
-      Colors.red,
       Colors.orange,
       Colors.purple,
       Colors.teal,
@@ -27,34 +33,47 @@ class Backgroundchanger extends StatelessWidget {
       Colors.blueGrey,
       Colors.indigoAccent,
     ];
-    int index = 0;
-    Color activeColor = bgColors[index];
 
+    Color activeColor = bgColors[index];
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Some Text",
+          "Background",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              // going to change colors here
+
+              // setState is the signal that tell the state class to rebuild the build method
+              setState(() {
+                if (index == bgColors.length - 1) {
+                  index = 0;
+                } else {
+                  index++;
+                }
+              });
+              print("$index is the new index value");
+              print("$activeColor is the new color");
+            },
+            icon: Icon(Icons.palette, color: Colors.white),
+          ),
+        ],
       ),
+
       body: Container(
         width: double.infinity,
         height: double.infinity,
         color: activeColor,
-      ),
-      floatingActionButton: InkWell(
-        onTap: () {
-          print("the background has been changed");
-          index++;
-          print(index);
-          print(activeColor.toString());
-        },
-        child: Container(
-          color: Colors.grey,
-          width: 200,
-          height: 100,
-          child: Center(child: Text("Change Background => $index")),
+        child: Center(
+          child: Text(index.toString()),
         ),
       ),
     );
