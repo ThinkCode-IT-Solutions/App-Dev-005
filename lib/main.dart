@@ -22,6 +22,16 @@ class BookApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       title: "Book App",
+      theme: ThemeData(
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal,brightness: Brightness.light),
+      ) ,
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange,brightness: Brightness.dark)
+      ),
+      themeMode: ThemeMode.light,
+
       debugShowCheckedModeBanner: false,
       home: Backgroundchanger(),
     );

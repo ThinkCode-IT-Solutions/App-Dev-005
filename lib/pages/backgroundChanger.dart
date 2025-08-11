@@ -11,6 +11,7 @@ class Backgroundchanger extends StatefulWidget {
 class _BackgroundChangerState extends State<Backgroundchanger> {
   int index = 0;
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     List<Color> bgColors = [
       Colors.red,
       Colors.green,
@@ -39,13 +40,12 @@ class _BackgroundChangerState extends State<Backgroundchanger> {
       appBar: AppBar(
         title: Text(
           "Background",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle( fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.blue,
         centerTitle: true,
         leading: IconButton(
           onPressed: () {},
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: Icon(Icons.arrow_back, ),
         ),
         actions: [
           IconButton(
@@ -63,7 +63,7 @@ class _BackgroundChangerState extends State<Backgroundchanger> {
               print("$index is the new index value");
               print("$activeColor is the new color");
             },
-            icon: Icon(Icons.palette, color: Colors.white),
+            icon: Icon(Icons.palette, ),
           ),
         ],
       ),
@@ -71,9 +71,10 @@ class _BackgroundChangerState extends State<Backgroundchanger> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color: activeColor,
+        color: theme.colorScheme.primary,
         child: Center(
-          child: Text(index.toString()),
+          child: ElevatedButton(onPressed: (){},child: Text("click"),),
+          // child: Text(index.toString()),
         ),
       ),
     );
